@@ -1,13 +1,16 @@
 <script lang="ts">
+import digitalArrOld from './old/digital.js'
 
 export default {
   data() {
     return { 
       showAbout:false,
       windowWidth: window.innerWidth,
+      currentArr: [],
      }
   },
   mounted() {
+    this.currentArr = digitalArrOld;
     this.$nextTick(() => {
       window.addEventListener('resize', this.onResize);
     })
@@ -24,6 +27,19 @@ export default {
     },
     routeLittleLemon() {
       window.open('https://github.com/calebwelch1/little-lemon-react-native'); 
+    },
+    imgOnClick(src,alt){
+      const modal = document.getElementById("myModal");
+      // const originalImg = document.getElementById("myImg");
+      const modalImg = document.getElementById("img01");
+      const captionText = document.getElementById("caption");
+      modal.style.display = "block";
+      modalImg.src = src;
+      captionText.innerHTML = alt;
+    },
+    spanOnClick(){
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
     },
   },
   };
@@ -43,12 +59,25 @@ export default {
           <a style="color:white; margin:none;padding:none; height: 1rem;" href="https://calebwelch1.github.io/portfolio/">Caleb Welch</a>
           </p>
         </div>
-        <!-- <div style="display:flex; flex-direction:row; justify-content:space-between;">
-          <p style="cursor:pointer;">Projects</p><p>|</p><p class="crossed-out-blur">Case Studies</p>
-        </div> -->
+
       </div>
     </div>
     <div style=" background: white; display: flex; flex-direction: column; height: 78vh; overflow-y: scroll; overflow-x:hidden;">
+      <div class="justify-around flex-wrap" style="display:flex;flexDirection:row;gap:5rem;">
+      <img
+      id="myImg"
+      style="height: 25%; width: 25%;"
+      :src="imageObj.src"
+      :alt="imageObj.alt"
+      @click="imgOnClick(imageObj.src,imageObj.alt)"
+      v-for="imageObj in currentArr" :key="imageObj"
+      />
+      <div id="myModal" class="modal">
+        <span class="close h-5 w-5" @click="spanOnClick">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption" class="caption" ></div>
+    </div>
+   </div>
   </div>
 </div>
 
@@ -113,170 +142,94 @@ html {
   position: relative;
 }
 // under 1260
-.img-one {
-        min-width: 101%;
-        min-height: 101%;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translate(-100%, -0%);
-        z-index: 2;
-      }
-
-.img-two {
-        min-width: 101%;
-        min-height: 101%;
-        position: absolute;
-        top: 100%;
-        right: 50%;
-        transform: translate(100%, 0%);
-      }
-
-.slideshow-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  font-size: 80px;
-  width: 100vw;
-  text-align: center;
-  color: #fff;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 100;
-  text-transform: uppercase;
-  letter-spacing: 20px;
-  line-height: 0.8;
-  
-  @media (max-width: 767px) {
-    font-size: 40px;
-  }
-  
-}
-
-.item {
+// portfolio CSS
+.justify-around{	justify-content: space-around}
+.flex-wrap	{flex-wrap: wrap}
+#myImg {
+  border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 1rem;
+  transition: 0.3s;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
-.the-most {
-  position: fixed;
-  z-index: 1;
-  bottom: 0;
-  left: 0;
-  width: 50vw;
-  max-width: 200px;
-  padding: 10px;
-  
-  img {
-    max-width: 100%;
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+@media screen and (min-width: 800px) {
+  .caption {
+  display:inline;
   }
 }
 
-.crossed-out-blur {
-  /* Add a text-decoration line to cross out the word */
-  text-decoration: line-through;
-
-  /* Add a white text-shadow to simulate a blur effect */
-  text-shadow: 0 0 5px white;
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
 }
 
-.background-gradient {
-  background: rgb(230,178,57);
-  background: linear-gradient(135deg, rgba(230,178,57,1) 0%, rgba(215,12,12,1) 100%, rgba(210,41,41,1) 100%);
+#myImg:hover {opacity: 0.7;}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.diagonal-square {
-    position: relative;
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
     width: 100%;
-    height: 100%;
-    background: rgb(230,178,57);
-    background: linear-gradient(135deg, rgba(230,178,57,1) 0%, rgba(215,12,12,1) 100%, rgba(210,41,41,1) 100%);
-    clip-path: polygon(0 0%, 100% 0, 0 100%, 0 100%);
+  }
 }
 
-.diagonal-square::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20%;
-    background: rgb(230,178,57);
-    background: linear-gradient(135deg, rgba(230,178,57,1) 0%, rgba(215,12,12,1) 100%, rgba(210,41,41,1) 100%); /* You can set the same background color as the square */
-    clip-path: polygon(0 0%, 100% 0, 0 100%, 0 100%);
+.h-5 {
+  height: 5rem;
 }
 
-.diagonal-square-blue {
-  position: relative;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(0 0%, 100% 0, 0 100%, 0 100%);
-  background: rgb(77,203,221);
-background: linear-gradient(135deg, rgba(77,203,221,1) 0%, rgba(12,40,215,1) 100%, rgba(210,41,41,1) 100%);
+.w-5 {
+  width: 5rem;
 }
 
-.diagonal-square-blue::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20%;
-    background: rgb(77,203,221);
-background: linear-gradient(135deg, rgba(77,203,221,1) 0%, rgba(12,40,215,1) 100%, rgba(210,41,41,1) 100%);
-    clip-path: polygon(0 0%, 100% 0, 0 100%, 0 100%);
-}
-
-.diagonal-square-yellow {
-  position: relative;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(0 0%, 100% 0, 0 100%, 0 100%);
-    background: #CFBE53;
-background: linear-gradient(to right, #CFBE53 0%, #CFFF30 30%, #A4FF54 60%, #82CF97 100%);
-}
-
-.diagonal-square-yellow::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20%;
-    background: #CFBE53;
-background: linear-gradient(to right, #CFBE53 0%, #CFFF30 30%, #A4FF54 60%, #82CF97 100%);
-    clip-path: polygon(0 0%, 100% 0, 0 100%, 0 100%);
-}
-
-
-.drop-shadow-xl {
-    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
-}
-
-.portfolio-button {
-  height: 4rem;
-  width: 23rem;
-  background: black;
-  color: white;
-  border-radius: 10rem;
-  font-size: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight:600;
-  letter-spacing:0.2em;
-  border:none;
-  cursor:pointer;
-  transition: background-color 0.2s, transform 0.1s;
-}
-
-.portfolio-button:hover {
-  background-color: #333; /* Slightly darker color on hover */
-}
-
-.portfolio-button:active {
-  background-color: #222; /* Even darker color on button press */
-  transform: translateY(2px); /* Slight vertical shift to simulate button press */
-}
 </style>
 
