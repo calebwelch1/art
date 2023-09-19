@@ -31,10 +31,12 @@ export default {
     imgOnClick(src: any,alt: any){
       const modal = document.getElementById("myModal");
       // const originalImg = document.getElementById("myImg");
+      const modalImgSrc = (<HTMLInputElement>document.getElementById("img01"));
       const modalImg = document.getElementById("img01");
       const captionText = document.getElementById("caption");
       modal!.style.display = "block";
-      modalImg!.src = src;
+      // modalImg!.src = src;
+      modalImgSrc.src = src;
       captionText!.innerHTML = alt;
     },
     spanOnClick(){
@@ -53,27 +55,43 @@ export default {
   <div class="portfolio-container">
     <div class="portfolio-header">
       <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:column;">
-        <h1 style="font-size:5.5rem; margin-bottom: 5px;">Caleb Welch's Art Portfolio</h1>
+        <h1 style="font-size:5.5rem; margin-bottom: 5px;">Caleb Welch</h1>
         <div style="display:flex; flex-direction: row;">
-          <p style="font-size:1.1rem; margin-left:auto; margin-right: auto;">projects by
+          <!-- <p style="font-size:1.1rem; margin-left:auto; margin-right: auto;">projects by
           <a style="color:white; margin:none;padding:none; height: 1rem;" href="https://calebwelch1.github.io/portfolio/">Caleb Welch</a>
-          </p>
+          </p> -->
         </div>
-
+        <div class="flex-row justify-around">
+          <!-- link arr -->
+          <div>
+            <a href="https://www.instagram.com/therealcalebwelch/" target="_blank" class="h-3 w-3"
+            style="border-radius: 9999px; margin: 1rem;">
+              <img class="h-2 w-2 filter-white" src="./icons/instagram.svg" style="margin-top:0.4rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            </a>
+            <a href="https://www.linkedin.com/in/caleb-welch-502851121/" target="_blank" class="h-3 w-3"
+            style="border-radius: 9999px; margin: 1rem;">
+              <img class="h-2 w-2 filter-white" src="./icons/linkedin.svg" style="margin-top:0.4rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            </a>
+            <a href="https://github.com/calebwelch1" target="_blank" class="h-3 w-3"
+            style="border-radius: 9999px; margin: 1rem;">
+              <img class="h-2 w-2 filter-white" src="./icons/github.png" style="margin-top:0.4rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div style=" background: white; display: flex; flex-direction: column; height: 78vh; overflow-y: scroll; overflow-x:hidden;">
       <div class="justify-around flex-wrap" style="display:flex;flexDirection:row;gap:5rem;">
       <img
       id="myImg"
-      style="height: 25%; width: 25%;"
+      style="height: 200px; width: 200px;"
       :src="imageObj['src']"
       :alt="imageObj['alt']"
       @click="imgOnClick(imageObj['src'],imageObj['alt'])"
       v-for="imageObj in currentArr" :key="imageObj"
       />
       <div id="myModal" class="modal">
-        <span class="close h-5 w-5" @click="spanOnClick">&times;</span>
+        <span class="close" style="height: 9rem; width: 9rem; font-Size: 9rem;" @click="spanOnClick">&times;</span>
         <img class="modal-content" id="img01">
         <div id="caption" class="caption" ></div>
     </div>
@@ -98,7 +116,7 @@ html {
 }
 
 .portfolio-header {
-  background: black; color:white; display: flex; flex-direction:row; height: 22vh;
+  background: black; color:white; display: flex; flex-direction:row; height: 38vh;
 }
 
 .project-container {
@@ -231,5 +249,24 @@ html {
   width: 5rem;
 }
 
+.h-3 {
+  height: 3.5rem;
+}
+
+.w-3 {
+  width: 3.5rem;
+}
+
+.h-2 {
+  height: 2.5rem;
+}
+
+.w-2 {
+  width: 2.5rem;
+}
+
+.filter-white{
+  filter: invert(100%) sepia(4%) saturate(7482%) hue-rotate(233deg) brightness(113%) contrast(95%);
+}
 </style>
 
