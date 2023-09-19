@@ -28,18 +28,18 @@ export default {
     routeLittleLemon() {
       window.open('https://github.com/calebwelch1/little-lemon-react-native'); 
     },
-    imgOnClick(src,alt){
+    imgOnClick(src: any,alt: any){
       const modal = document.getElementById("myModal");
       // const originalImg = document.getElementById("myImg");
       const modalImg = document.getElementById("img01");
       const captionText = document.getElementById("caption");
-      modal.style.display = "block";
-      modalImg.src = src;
-      captionText.innerHTML = alt;
+      modal!.style.display = "block";
+      modalImg!.src = src;
+      captionText!.innerHTML = alt;
     },
     spanOnClick(){
     const modal = document.getElementById("myModal");
-    modal.style.display = "none";
+    modal!.style.display = "none";
     },
   },
   };
@@ -67,9 +67,9 @@ export default {
       <img
       id="myImg"
       style="height: 25%; width: 25%;"
-      :src="imageObj.src"
-      :alt="imageObj.alt"
-      @click="imgOnClick(imageObj.src,imageObj.alt)"
+      :src="imageObj['src']"
+      :alt="imageObj['alt']"
+      @click="imgOnClick(imageObj['src'],imageObj['alt'])"
       v-for="imageObj in currentArr" :key="imageObj"
       />
       <div id="myModal" class="modal">
