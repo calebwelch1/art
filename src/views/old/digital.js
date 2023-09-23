@@ -200,4 +200,7 @@ const digitalArrOld = [
     },
 ]
 
+// declare module 'digitalArrOld' {
+//     export default digitalArrOld: Array
+// } 
 export default digitalArrOld;

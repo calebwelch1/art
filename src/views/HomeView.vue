@@ -1,5 +1,6 @@
 <script lang="ts">
 import digitalArrOld from './old/digital.js'
+// declare var require: any
 // const digitalArrOld = require('./old/digital.js')
 
 export default {
