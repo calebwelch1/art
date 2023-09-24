@@ -3,12 +3,17 @@ import digitalArrOld from './old/digital.js'
 // declare var require: any
 // const digitalArrOld = require('./old/digital.js')
 
+interface MyObject {
+    src: any;
+    alt: string;
+  }
+
 export default {
   data() {
     return { 
       showAbout:false,
       windowWidth: window.innerWidth,
-      currentArr: [],
+      currentArr: [] as MyObject[],
      }
   },
   mounted() {
