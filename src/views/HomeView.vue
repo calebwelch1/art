@@ -1,5 +1,7 @@
 <script lang="ts">
 import digitalArrOld from './old/digital.js'
+import twentytwentythree from './new/2023.js'
+import closetou from '../assets/portfolioOLD/DigitalPaintings/close-to-u.jpg'
 // declare var require: any
 // const digitalArrOld = require('./old/digital.js')
 
@@ -14,10 +16,13 @@ export default {
       showAbout:false,
       windowWidth: window.innerWidth,
       currentArr: [] as MyObject[],
+      closetou,
+      title: '2023',
      }
   },
   mounted() {
-    this.currentArr = digitalArrOld;
+    // this.currentArr = digitalArrOld;
+    this.currentArr = twentytwentythree;
     this.$nextTick(() => {
       window.addEventListener('resize', this.onResize);
     })
@@ -60,38 +65,34 @@ export default {
 <body>
   
   <div class="portfolio-container">
-    <div class="portfolio-header">
-      <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:column;">
-        <h1 style="font-size:5.5rem; margin-bottom: 5px;">Caleb Welch</h1>
-        <div style="display:flex; flex-direction: row;">
-          <!-- <p style="font-size:1.1rem; margin-left:auto; margin-right: auto;">projects by
-          <a style="color:white; margin:none;padding:none; height: 1rem;" href="https://calebwelch1.github.io/portfolio/">Caleb Welch</a>
-          </p> -->
-        </div>
-        <div class="flex-row justify-around">
+    <div class="portfolio-header" style="overflow-y: hidden; overflow-x: hidden; z-index: 2;">
+      <div class="color-overlay"></div>
+      <figure id="thumbnail" class="loading content-fill" style="overflow: hidden; z-index: 3;">
+        <img :src="closetou" data-image-focal-point="0.5,0.5" data-parent-ratio="1.7" style="font-size: 0px; left: 0px; top: -3.39787px; width: auto; height: 663.796px; position: relative; overflow: hidden;" alt="portraits_santiago_twice.jpg" class="" data-image-resolution="2500w">
+      </figure>
+      <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:row; position: absolute; z-index: 25; width: 100vw; left:calc(100vw/5.5)!important; top: 2%;">
           <!-- link arr -->
-          <div>
-            <a href="https://www.instagram.com/therealcalebwelch/" target="_blank" class="h-3 w-3"
-            style="border-radius: 9999px; margin: 1rem;">
-              <img class="h-2 w-2 filter-white" src="./icons/instagram.svg" style="margin-top:0.4rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            <a href="https://www.instagram.com/therealcalebwelch/" target="_blank"
+            style="border-radius: 9999px; margin: 1rem; margin-top: 1.4rem; text-decoration: none;">
+              <p style="margin-top: 0.5rem; margin: 1rem; font-size: 1.6rem;">Instagram</p>
             </a>
             <a href="https://www.linkedin.com/in/caleb-welch-502851121/" target="_blank" class="h-3 w-3"
-            style="border-radius: 9999px; margin: 1rem;">
-              <img class="h-2 w-2 filter-white" src="./icons/linkedin.svg" style="margin-top:0.4rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            style="border-radius: 9999px; margin: 1rem; margin-top: 1.4rem; text-decoration: none;">
+            <p style="margin-top: 0.5rem; margin: 1rem; font-size: 1.6rem;">linkedin</p>
+
             </a>
+           <h1 style="font-size:5.5rem; margin-bottom: 0rem; margin-top: 1.2rem; margin-left: 4vw; margin-right: 4vw;">Caleb Welch</h1>
             <a href="https://github.com/calebwelch1" target="_blank" class="h-3 w-3"
-            style="border-radius: 9999px; margin: 1rem;">
-              <img class="h-2 w-2 filter-white" src="./icons/github.png" style="margin-top:0.4rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            style="border-radius: 9999px; margin: 1rem; margin-top: 1.4rem; text-decoration: none;">
+            <p style="margin-top: 0.5rem; margin: 1rem; font-size: 1.6rem;">github</p>
             </a>
-          </div>
-        </div>
       </div>
     </div>
-    <div style=" background: white; display: flex; flex-direction: column; height: 78vh; overflow-y: scroll; overflow-x:hidden;">
-      <div class="justify-around flex-wrap" style="display:flex;flexDirection:row;gap:5rem;">
+    <div style=" background: #777069; display: flex; flex-direction: column; height: 78vh; overflow-y: scroll; overflow-x:hidden;">
+      <div class="justify-around flex-wrap" style="display:flex;flexDirection:row;gap:2.5rem; margin-left: 15vw; margin-right: 15vw; margin-top: 5vh;">
       <img
       id="myImg"
-      style="height: 200px; width: 200px;"
+      style="height: auto; width: auto; max-width: 200px; max-height: 200px;"
       :src="imageObj['src']"
       :alt="imageObj['alt']"
       @click="imgOnClick(imageObj['src'],imageObj['alt'])"
@@ -104,6 +105,21 @@ export default {
     </div>
    </div>
   </div>
+     <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:row;">
+          <!-- link arr -->
+            <a href="https://www.instagram.com/therealcalebwelch/" target="_blank" class="h-3 w-3"
+            style="border-radius: 9999px; margin: 1rem;">
+              <img class="h-2 w-2 filter-white" src="./icons/instagram.svg" style="margin-bottom:-8rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            </a>
+            <a href="https://www.linkedin.com/in/caleb-welch-502851121/" target="_blank" class="h-3 w-3"
+            style="border-radius: 9999px; margin: 1rem;">
+              <img class="h-2 w-2 filter-white" src="./icons/linkedin.svg" style="margin-top:0.4rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            </a>
+            <a href="https://github.com/calebwelch1" target="_blank" class="h-3 w-3"
+            style="border-radius: 9999px; margin: 1rem;">
+              <img class="h-2 w-2 filter-white" src="./icons/github.png" style="margin-top:0.4rem; margin: 1rem;" alt="images made by https://www.flaticon.com"/>
+            </a>
+      </div>
 </div>
 
 </body>
@@ -117,13 +133,22 @@ html {
   background: #110101;
   overflow: hidden;
 }
+a {color:#fff;}
+a:visited {color:#777069;}
 
 .portfolio-container {
   height:100%; width: 100%; display: flex; flex-direction: column; overflow:hidden;
 }
 
 .portfolio-header {
-  background: black; color:white; display: flex; flex-direction:row; height: 38vh;
+  // background-color: rgba(10, 4, 0, 0.5);
+  position: relative;
+  color:white; display: flex; flex-direction:row; height: 48vh;
+}
+
+.transparent-background {
+  background:rgb(118, 90, 63);
+  opacity: 0.5;
 }
 
 .project-container {
@@ -178,7 +203,7 @@ html {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 100; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -274,6 +299,24 @@ html {
 
 .filter-white{
   filter: invert(100%) sepia(4%) saturate(7482%) hue-rotate(233deg) brightness(113%) contrast(95%);
+}
+
+.color-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(42,28,14,.6);
+    z-index: 20;
+}
+
+#thumbnail {
+    position: absolute;
+    top: calc(100vh/8)!important;
+    left:calc(100vw/5.5)!important;
+    bottom: 0;
+    right: 0;
 }
 </style>
 

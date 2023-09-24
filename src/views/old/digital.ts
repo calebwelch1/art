@@ -38,17 +38,10 @@ import blockblackpurple from '../../assets/portfolioOLD/DigitalPaintings/blockbl
 import venti from '../../assets/portfolioOLD/DigitalPaintings/venti.jpg';
 import closetou from '../../assets/portfolioOLD/DigitalPaintings/close-to-u.jpg';
 
-// declare module 'digitalArrOld' {
-//     export default digitalArrOld: Array
-// } 
-// export default digitalArrOld;
-
 interface MyObject {
     src: any;
     alt: string;
   }
-
-// declare module 'digitalarrold' {
 
     
      const digitalArrOld: MyObject[] = [
