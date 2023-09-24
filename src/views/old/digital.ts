@@ -38,169 +38,177 @@ import blockblackpurple from '../../assets/portfolioOLD/DigitalPaintings/blockbl
 import venti from '../../assets/portfolioOLD/DigitalPaintings/venti.jpg';
 import closetou from '../../assets/portfolioOLD/DigitalPaintings/close-to-u.jpg';
 
-
-
-
-const digitalArrOld = [
-    {
-        src: closetou,
-        alt: "I'd give everything if it ment I could be close to u"
-    },
-    {
-        src: venti,
-        alt: ''
-    },
-    {
-        src: blockblackpurple,
-        alt: ''
-    },
-    {
-        src: ghostgirl,
-        alt: ''
-    },
-    {
-        src: ghostgirlClouds,
-        alt: ''
-    },
-    {
-        src: ghostgirlMountains,
-        alt: ''
-    },
-    {
-        src: ghostgirlMountainsBlack,
-        alt: ''
-    },
-    {
-        src: ghostgirlMountainsPurple,
-        alt: ''
-    },
-    {
-        src: ghostgirlReverse,
-        alt: ''
-    },
-    {
-        src: digitalKiss,
-        alt: ''
-    },
-    {
-        src: orangeclouds,
-        alt: ''
-    },
-    {
-        src: whiteclouds,
-        alt: ''
-    },
-    {
-        src: headgames,
-        alt: ''
-    },
-    {
-        src: headgamesRed,
-        alt: ''
-    },
-    {
-        src: badcat,
-        alt: ''
-    },
-    {
-        src: bee,
-        alt: ''
-    },
-    {
-        src: cloudgirl,
-        alt: ''
-    },
-    {
-        src: cry,
-        alt: ''
-    },
-    {
-        src: cryreverse,
-        alt: ''
-    },
-    {
-        src: dreadsgirl,
-        alt: ''
-    },
-    {
-        src: dreadsgirlreverse,
-        alt: ''
-    },
-    {
-        src: egg,
-        alt: ''
-    },
-    {
-        src: egg1,
-        alt: ''
-    },
-    {
-        src: fireglitchmaroon,
-        alt: ''
-    },
-    {
-        src: fishbone,
-        alt: ''
-    },
-    {
-        src: grillin,
-        alt: ''
-    },
-    {
-        src: judeportrait,
-        alt: ''
-    },
-    {
-        src: leatherface,
-        alt: ''
-    },
-    {
-        src: leatherfacered,
-        alt: ''
-    },
-    {
-        src: leatherfacewhite,
-        alt: ''
-    },
-    {
-        src: meowth,
-        alt: ''
-    },
-    {
-        src: pinhead,
-        alt: ''
-    },
-    {
-        src: robot,
-        alt: ''
-    },
-    {
-        src: robotcolor,
-        alt: ''
-    },
-    {
-        src: rushcover,
-        alt: ''
-    },
-    {
-        src: rushcoveri,
-        alt: ''
-    },
-    {
-        src: smilewarp,
-        alt: ''
-    },
-    {
-        src: smoke,
-        alt: ''
-    },
-    {
-        src: taejoo,
-        alt: ''
-    },
-]
-
 // declare module 'digitalArrOld' {
 //     export default digitalArrOld: Array
 // } 
-export default digitalArrOld;
+// export default digitalArrOld;
+
+interface MyObject {
+    src: any;
+    alt: string;
+  }
+
+// declare module 'digitalarrold' {
+
+    
+     const digitalArrOld: MyObject[] = [
+        {
+            src: closetou,
+            alt: "I'd give everything if it ment I could be close to u"
+        },
+        {
+            src: venti,
+            alt: ''
+        },
+        {
+            src: blockblackpurple,
+            alt: ''
+        },
+        {
+            src: ghostgirl,
+            alt: ''
+        },
+        {
+            src: ghostgirlClouds,
+            alt: ''
+        },
+        {
+            src: ghostgirlMountains,
+            alt: ''
+        },
+        {
+            src: ghostgirlMountainsBlack,
+            alt: ''
+        },
+        {
+            src: ghostgirlMountainsPurple,
+            alt: ''
+        },
+        {
+            src: ghostgirlReverse,
+            alt: ''
+        },
+        {
+            src: digitalKiss,
+            alt: ''
+        },
+        {
+            src: orangeclouds,
+            alt: ''
+        },
+        {
+            src: whiteclouds,
+            alt: ''
+        },
+        {
+            src: headgames,
+            alt: ''
+        },
+        {
+            src: headgamesRed,
+            alt: ''
+        },
+        {
+            src: badcat,
+            alt: ''
+        },
+        {
+            src: bee,
+            alt: ''
+        },
+        {
+            src: cloudgirl,
+            alt: ''
+        },
+        {
+            src: cry,
+            alt: ''
+        },
+        {
+            src: cryreverse,
+            alt: ''
+        },
+        {
+            src: dreadsgirl,
+            alt: ''
+        },
+        {
+            src: dreadsgirlreverse,
+            alt: ''
+        },
+        {
+            src: egg,
+            alt: ''
+        },
+        {
+            src: egg1,
+            alt: ''
+        },
+        {
+            src: fireglitchmaroon,
+            alt: ''
+        },
+        {
+            src: fishbone,
+            alt: ''
+        },
+        {
+            src: grillin,
+            alt: ''
+        },
+        {
+            src: judeportrait,
+            alt: ''
+        },
+        {
+            src: leatherface,
+            alt: ''
+        },
+        {
+            src: leatherfacered,
+            alt: ''
+        },
+        {
+            src: leatherfacewhite,
+            alt: ''
+        },
+        {
+            src: meowth,
+            alt: ''
+        },
+        {
+            src: pinhead,
+            alt: ''
+        },
+        {
+            src: robot,
+            alt: ''
+        },
+        {
+            src: robotcolor,
+            alt: ''
+        },
+        {
+            src: rushcover,
+            alt: ''
+        },
+        {
+            src: rushcoveri,
+            alt: ''
+        },
+        {
+            src: smilewarp,
+            alt: ''
+        },
+        {
+            src: smoke,
+            alt: ''
+        },
+        {
+            src: taejoo,
+            alt: ''
+        },
+    ]
+    
+    export default digitalArrOld
+//   }
