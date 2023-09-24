@@ -95,7 +95,7 @@ export default {
       :src="imageObj['src']"
       :alt="imageObj['alt']"
       @click="imgOnClick(imageObj['src'],imageObj['alt'])"
-      v-for="imageObj in currentArr" :key="imageObj"
+      v-for="(imageObj, index) in currentArr" :key="index"
       />
       <div id="myModal" class="modal">
         <span class="close" style="height: 9rem; width: 9rem; font-Size: 9rem;" @click="spanOnClick">&times;</span>
