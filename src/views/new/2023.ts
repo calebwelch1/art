@@ -13,7 +13,7 @@ interface MyObject {
 const twentytwentythree: MyObject[] = [
     {
         src: alex,
-        alt: 'Study of a still from Hereditary - September 2023'
+        alt: 'Study of a still from Hereditary of Alex Wolff - digital - September 2023'
     },
     {
         src: assumption,
@@ -33,7 +33,7 @@ const twentytwentythree: MyObject[] = [
     },
     {
         src: venti,
-        alt: ''
+        alt: 'Brittany Venti - digital - 2022'
     },
 ]
 

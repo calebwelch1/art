@@ -107,8 +107,8 @@ export default {
       />
       <div id="myModal" class="modal">
         <span class="close" style="height: 9rem; width: 9rem; font-Size: 9rem;" @click="spanOnClick">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption" class="caption" ></div>
+        <img class="modal-content" id="img01" style="position: absolute; left: 10%;">
+        <div id="caption" class="caption" style="position:absolute; right: 10%; top: 30%;"></div>
     </div>
    </div>
   </div>
