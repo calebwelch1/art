@@ -34,11 +34,13 @@ export default {
     onResize() {
       this.windowWidth = window.innerWidth
     },
-    routeCC() {
-      window.open('https://calebwelch1.github.io/c-collection'); 
+    onClickTwentyThree() {
+      this.title = '2023'
+      this.currentArr = twentytwentythree;
     },
-    routeLittleLemon() {
-      window.open('https://github.com/calebwelch1/little-lemon-react-native'); 
+    onClickOld() {
+      this.title = '-2022'
+      this.currentArr = digitalArrOld;
     },
     imgOnClick(src: any,alt: any){
       const modal = document.getElementById("myModal");
@@ -70,6 +72,7 @@ export default {
       <figure id="thumbnail" class="loading content-fill" style="overflow: hidden; z-index: 3;">
         <img :src="closetou" data-image-focal-point="0.5,0.5" data-parent-ratio="1.7" style="font-size: 0px; left: 0px; top: -3.39787px; width: auto; height: 663.796px; position: relative; overflow: hidden;" alt="portraits_santiago_twice.jpg" class="" data-image-resolution="2500w">
       </figure>
+      <h2 style=" font-size: 5rem; position: absolute; z-index: 25; width: 100vw; left:calc(100vw/2.3)!important; top: 38%; opacity: 0.8" >{{ title }}</h2>
       <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:row; position: absolute; z-index: 25; width: 100vw; left:calc(100vw/5.5)!important; top: 2%;">
           <!-- link arr -->
             <a href="https://www.instagram.com/therealcalebwelch/" target="_blank"
@@ -89,7 +92,11 @@ export default {
       </div>
     </div>
     <div style=" background: #777069; display: flex; flex-direction: column; height: 78vh; overflow-y: scroll; overflow-x:hidden;">
-      <div class="justify-around flex-wrap" style="display:flex;flexDirection:row;gap:2.5rem; margin-left: 15vw; margin-right: 15vw; margin-top: 5vh;">
+      <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:row; gap: 2.5rem; margin-top: 1.5rem;">
+      <button class="portfolio-button" @click="onClickTwentyThree"> 2023 </button>
+      <button class="portfolio-button" @click="onClickOld"> 2022 - and prior </button>
+      </div>
+      <div class="justify-around flex-wrap" style="display:flex;flexDirection:row;gap:2.5rem; margin-left: 15vw; margin-right: 15vw; margin-top: 2.5vh;">
       <img
       id="myImg"
       style="height: auto; width: auto; max-width: 200px; max-height: 200px;"
@@ -271,6 +278,33 @@ a:visited {color:#777069;}
   .modal-content {
     width: 100%;
   }
+}
+
+.portfolio-button {
+  height: 2.5rem;
+  width: auto;
+  background: rgba(42,28,14, 1);
+  color: white;
+  border-radius: 0.2rem;
+  font-size: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight:600;
+  letter-spacing:0.2em;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  border:none;
+  cursor:pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.portfolio-button:hover {
+  background-color: #333; /* Slightly darker color on hover */
+}
+
+.portfolio-button:active {
+  background-color: #222; /* Even darker color on button press */
+  transform: translateY(2px); /* Slight vertical shift to simulate button press */
 }
 
 .h-5 {
