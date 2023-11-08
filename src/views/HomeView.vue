@@ -145,7 +145,7 @@ export default {
       <div id="myModal" class="modal">
         <span class="close" style="height: 9rem; width: 9rem; font-Size: 9rem;" @click="spanOnClick">&times;</span>
         <img class="modal-content" id="img01" style="position: absolute; left: 10%;">
-        <div id="caption" class="caption" style="position:absolute; right: 10%; top: 30%;"></div>
+        <div id="caption" class="caption" style=""></div>
     </div>
    </div>
   </div>
@@ -302,6 +302,7 @@ a:visited {color:#777069;}
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
+  z-index: 99;
 }
 
 .close:hover,
@@ -319,8 +320,23 @@ a:visited {color:#777069;}
   left:calc(100vw/2.2)!important;
 }
 
+.caption {
+  position:absolute; right: 10%; top: 30%;
+}
+
 
 @media only screen and (max-width: 1300px){
+  .caption {
+  position:absolute; right: 10%; top: 5%;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 85%;
+  bottom: 5%;
+  max-width: 700px;
+}
   .hide-small-screen {
     display: none !important;
   }
@@ -333,9 +349,6 @@ a:visited {color:#777069;}
 }
 
 @media only screen and (max-width: 800px){
-  .modal-content {
-    width: 100%;
-  }
 
   .link-arr {
     display: none !important;
@@ -352,11 +365,51 @@ a:visited {color:#777069;}
 .center-header{
   left:calc(100vw/2.7)!important;
 }
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 85%;
+  bottom: 20%;
+  max-width: 500px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  left: 40%;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.caption {
+  position:absolute; right: 10%; top: 15%;
+}
 }
 
 @media only screen and (max-width: 500px){
   .center-header{
   left:calc(100vw/3.4)!important;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 85%;
+  bottom: 20%;
+  max-width: 500px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  left: 40%;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 }
 
