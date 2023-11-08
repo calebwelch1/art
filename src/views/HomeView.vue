@@ -69,23 +69,24 @@ export default {
   <div class="portfolio-container">
     <div class="portfolio-header" style="overflow-y: hidden; overflow-x: hidden; z-index: 2;">
       <div class="color-overlay"></div>
-      <figure id="thumbnail" class="loading content-fill" style="overflow: hidden; z-index: 3;">
+      <!-- <figure id="thumbnail" class="loading content-fill link-arr center-header" style="overflow: hidden; z-index: 3;">
         <img :src="closetou" data-image-focal-point="0.5,0.5" data-parent-ratio="1.7" style="font-size: 0px; left: 0px; top: -3.39787px; width: auto; height: 663.796px; position: relative; overflow: hidden;" alt="portraits_santiago_twice.jpg" class="" data-image-resolution="2500w">
-      </figure>
-      <h2 style=" font-size: 5rem; position: absolute; z-index: 25; width: 100vw; left:calc(100vw/2.3)!important; top: 38%; opacity: 0.8" >{{ title }}</h2>
-      <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:row; position: absolute; z-index: 25; width: 100vw; left:calc(100vw/5.5)!important; top: 2%;">
+      </figure> -->
+      <h2 class="show-small-screen center-header" style=" font-size: 5rem; position: absolute; z-index: 25; width: 100vw; top: 8%; opacity: 1; color:#fff; margin-left: -1rem;" >Caleb</h2>
+      <h2 class="center-header" style=" font-size: 5rem; position: absolute; z-index: 25; width: 100vw; top: 38%; opacity: 0.8" >{{ title }}</h2>
+      <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:row; position: absolute; z-index: 25; width: 100vw; left:calc(100vw/6)!important; top: 2%;">
           <!-- link arr -->
-            <a href="https://www.instagram.com/therealcalebwelch/" target="_blank"
+            <a href="https://www.instagram.com/therealcalebwelch/" target="_blank" class="hide-small-screen"
             style="border-radius: 9999px; margin: 1rem; margin-top: 1.4rem; text-decoration: none;">
               <p style="margin-top: 0.5rem; margin: 1rem; font-size: 1.6rem;">Instagram</p>
             </a>
-            <a href="https://www.linkedin.com/in/caleb-welch-502851121/" target="_blank" class="h-3 w-3"
+            <a href="https://www.linkedin.com/in/caleb-welch-502851121/" target="_blank" class="hide-small-screen"
             style="border-radius: 9999px; margin: 1rem; margin-top: 1.4rem; text-decoration: none;">
             <p style="margin-top: 0.5rem; margin: 1rem; font-size: 1.6rem;">linkedin</p>
 
             </a>
-           <h1 style="font-size:5.5rem; margin-bottom: 0rem; margin-top: 1.2rem; margin-left: 4vw; margin-right: 4vw;">Caleb Welch</h1>
-            <a href="https://github.com/calebwelch1" target="_blank" class="h-3 w-3"
+           <h1 style="font-size:5.5rem; margin-bottom: 0rem; margin-top: 1.2rem; margin-left: 4vw; margin-right: 4vw;" class="hide-small-screen">Caleb Welch</h1>
+            <a href="https://github.com/calebwelch1" target="_blank" class="hide-small-screen"
             style="border-radius: 9999px; margin: 1rem; margin-top: 1.4rem; text-decoration: none;">
             <p style="margin-top: 0.5rem; margin: 1rem; font-size: 1.6rem;">github</p>
             </a>
@@ -274,10 +275,47 @@ a:visited {color:#777069;}
   cursor: pointer;
 }
 
-@media only screen and (max-width: 700px){
+.show-small-screen {
+  display: none;
+}
+
+.center-header{
+  left:calc(100vw/2.2)!important;
+}
+
+
+@media only screen and (max-width: 1300px){
+  .hide-small-screen {
+    display: none !important;
+  }
+  .show-small-screen {
+  display: block;
+}
+.center-header{
+  left:calc(100vw/2.5)!important;
+}
+}
+
+@media only screen and (max-width: 800px){
   .modal-content {
     width: 100%;
   }
+
+  .link-arr {
+    display: none !important;
+  }
+
+  .hide-small-screen {
+    display: none !important;
+  }
+
+  .show-small-screen {
+  display: block;
+}
+
+.center-header{
+  left:calc(100vw/2.7)!important;
+}
 }
 
 .portfolio-button {
@@ -348,9 +386,10 @@ a:visited {color:#777069;}
 #thumbnail {
     position: absolute;
     top: calc(100vh/8)!important;
-    left:calc(100vw/5.5)!important;
+    // left:calc(100vw/5.9)!important;
     bottom: 0;
     right: 0;
+    margin: 16 40 16 5;
 }
 </style>
 
