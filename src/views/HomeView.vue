@@ -354,6 +354,12 @@ a:visited {color:#777069;}
 }
 }
 
+@media only screen and (max-width: 500px){
+  .center-header{
+  left:calc(100vw/3.4)!important;
+}
+}
+
 .portfolio-button {
   height: 2.5rem;
   width: auto;
