@@ -59,10 +59,11 @@ export default {
     onResize() {
       this.windowWidth = window.innerWidth
     },
-    loadNextimage(currentIndex){
+    loadNextimage(currentIndex: number){
       let nextIndex = currentIndex+1
       if(nextIndex<this.currentArr.length){
           let img = this.currentArr[nextIndex]
+          console.log('loading index', nextIndex);
           // img.src = img.asrc
           // delete img.asrc
         //  Vue.set(this.currentArr,nextIndex,img)
