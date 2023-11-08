@@ -4,6 +4,7 @@ import alex from '../../assets/portfolioNEW/alex_wolff_digital.jpg';
 import assumption from '../../assets/portfolioNEW/assumption.jpg';
 import blueclouds from '../../assets/portfolioNEW/blueclouds.jpg';
 import greyportrait from '../../assets/portfolioNEW/greyportrait.jpg';
+import handsGraphite from '../../assets/portfolioNEW/hands_graphite.jpg';
 
 interface MyObject {
     src: any;
@@ -11,6 +12,10 @@ interface MyObject {
   }
 
 const twentytwentythree: MyObject[] = [
+    {
+        src: handsGraphite,
+        alt: 'Graphite hands study - October 2023'
+    },
     {
         src: alex,
         alt: 'Study of a still from Hereditary of Alex Wolff - digital - September 2023'
