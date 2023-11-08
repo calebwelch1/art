@@ -16,13 +16,38 @@ export default {
       showAbout:false,
       windowWidth: window.innerWidth,
       currentArr: [] as MyObject[],
+      queue: [] as MyObject[],
       closetou,
       title: '2023',
      }
   },
   mounted() {
     // this.currentArr = digitalArrOld;
-    this.currentArr = twentytwentythree;
+    // function loader(i){
+    //   setTimeout(() => {
+    //     for(;i<i+2; i++){
+    //     this.queue.push(currentArr[i]);
+    //     }
+    //   }, 5000);
+    // }
+  //   function loader(i) {
+  //   setTimeout(() => {
+  //     for (; i < i + 2 && i < this.currentArr.length; i++) {
+  //       this.queue.push(this.currentArr[i]);
+  //     }
+
+  //     if (i < this.currentArr.length) {
+  //       this.loader(i);
+  //     }
+  //   }, 5000);
+  // }
+  //   let counter = 2;
+  //   this.currentArr = twentytwentythree;
+  //   this.queue.push(this.currentArr[0]);
+  //   this.queue.push(this.currentArr[1]);
+  //   loader(counter);
+  this.currentArr = twentytwentythree;
+  this.loadNextimage(-1)
     this.$nextTick(() => {
       window.addEventListener('resize', this.onResize);
     })
@@ -33,6 +58,15 @@ export default {
   methods: {  
     onResize() {
       this.windowWidth = window.innerWidth
+    },
+    loadNextimage(currentIndex){
+      let nextIndex = currentIndex+1
+      if(nextIndex<this.currentArr.length){
+          let img = this.currentArr[nextIndex]
+          // img.src = img.asrc
+          // delete img.asrc
+        //  Vue.set(this.currentArr,nextIndex,img)
+      }
     },
     onClickTwentyThree() {
       this.title = '2023'
@@ -105,6 +139,7 @@ export default {
       :alt="imageObj['alt']"
       @click="imgOnClick(imageObj['src'],imageObj['alt'])"
       v-for="(imageObj, index) in currentArr" :key="index"
+      @load="loadNextimage(index)"
       />
       <div id="myModal" class="modal">
         <span class="close" style="height: 9rem; width: 9rem; font-Size: 9rem;" @click="spanOnClick">&times;</span>
