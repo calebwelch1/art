@@ -5,6 +5,7 @@ import assumption from '../../assets/portfolioNEW/assumption.jpg';
 import blueclouds from '../../assets/portfolioNEW/blueclouds.jpg';
 import greyportrait from '../../assets/portfolioNEW/greyportrait.jpg';
 import handsGraphite from '../../assets/portfolioNEW/hands_graphite.jpg';
+import rekha from '../../assets/portfolioNEW/rekha.jpg';
 
 interface MyObject {
     src: any;
@@ -12,6 +13,10 @@ interface MyObject {
   }
 
 const twentytwentythree: MyObject[] = [
+    {
+        src: rekha,
+        alt: 'Rekha study - Nov 2023'
+    },
     {
         src: handsGraphite,
         alt: 'Graphite hands study - October 2023'
