@@ -6,6 +6,7 @@ import blueclouds from '../../assets/portfolioNEW/blueclouds.jpg';
 import greyportrait from '../../assets/portfolioNEW/greyportrait.jpg';
 import handsGraphite from '../../assets/portfolioNEW/hands_graphite.jpg';
 import rekha from '../../assets/portfolioNEW/rekha.jpg';
+import indianYizheng from '../../assets/portfolioNEW/indian_yizheng.png';
 
 interface MyObject {
     src: any;
@@ -13,6 +14,10 @@ interface MyObject {
   }
 
 const twentytwentythree: MyObject[] = [
+    {
+        src: indianYizheng,
+        alt: 'Trying to add YizhengKe style to my digital art'
+    },
     {
         src: rekha,
         alt: 'Rekha study - Nov 2023'
