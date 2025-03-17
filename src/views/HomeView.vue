@@ -1,6 +1,9 @@
 <script lang="ts">
 import digitalArrOld from './old/digital.js'
 import twentytwentythree from './new/2023.js'
+import twentytwentyfour from './new/2024.ts'
+import twentytwentyfive from './new/2025.ts'
+
 import closetou from '../assets/portfolioOLD/DigitalPaintings/close-to-u.jpg'
 // declare var require: any
 // const digitalArrOld = require('./old/digital.js')
@@ -18,7 +21,7 @@ export default {
       currentArr: [] as MyObject[],
       queue: [] as MyObject[],
       closetou,
-      title: '2023',
+      title: '2024',
      }
   },
   mounted() {
@@ -46,7 +49,11 @@ export default {
   //   this.queue.push(this.currentArr[0]);
   //   this.queue.push(this.currentArr[1]);
   //   loader(counter);
-  this.currentArr = twentytwentythree;
+  window.addEventListener('resize', this.onResize);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') this.spanOnClick();
+  });
+  this.currentArr = twentytwentyfour;
   this.loadNextimage(-1)
     this.$nextTick(() => {
       window.addEventListener('resize', this.onResize);
@@ -59,19 +66,35 @@ export default {
     onResize() {
       this.windowWidth = window.innerWidth
     },
-    loadNextimage(currentIndex: number){
-      let nextIndex = currentIndex+1
-      if(nextIndex<this.currentArr.length){
-          let img = this.currentArr[nextIndex]
-          console.log('loading index', nextIndex);
-          // img.src = img.asrc
-          // delete img.asrc
-        //  Vue.set(this.currentArr,nextIndex,img)
-      }
-    },
+    // loadNextimage(currentIndex: number){
+    //   let nextIndex = currentIndex+1
+    //   if(nextIndex<this.currentArr.length){
+    //       let img = this.currentArr[nextIndex]
+    //       console.log('loading index', nextIndex);
+    //       // img.src = img.asrc
+    //       // delete img.asrc
+    //     //  Vue.set(this.currentArr,nextIndex,img)
+    //   }
+    // },
+    loadNextimage(currentIndex: number) {
+      const nextIndex = currentIndex + 1;
+      if (nextIndex < this.currentArr.length) {
+      const img = new Image();
+      img.src = this.currentArr[nextIndex].src; // Preload in background
+      console.log('Preloading index', nextIndex);
+    }
+  },
     onClickTwentyThree() {
       this.title = '2023'
       this.currentArr = twentytwentythree;
+    },
+    onClickTwentyFour() {
+      this.title = '2024'
+      this.currentArr = twentytwentyfour;
+    },
+    onClickTwentyFive() {
+      this.title = '2025'
+      this.currentArr = twentytwentyfive;
     },
     onClickOld() {
       this.title = '-2022'
@@ -129,12 +152,19 @@ export default {
     </div>
     <div style=" background: #777069; display: flex; flex-direction: column; height: 78vh; overflow-y: scroll; overflow-x:hidden;">
       <div style="margin-left: auto; margin-right: auto; display:flex; flex-direction:row; gap: 2.5rem; margin-top: 1.5rem;">
-      <button class="portfolio-button" @click="onClickTwentyThree"> 2023 </button>
-      <button class="portfolio-button" @click="onClickOld"> 2022 - and prior </button>
+      <!-- <button class="portfolio-button" @click="onClickTwentyFive"> 2025 </button> -->
+      <button class="portfolio-button" aria-label="View 2024 artwork" @click="onClickTwentyFour"> 2024 </button>
+      <button class="portfolio-button" aria-label="View 2023 artwork" @click="onClickTwentyThree"> 2023 </button>
+      <button class="portfolio-button" aria-label="View 2022 and prior artwork" @click="onClickOld"> 2022 - and prior </button>
       </div>
-      <div class="justify-around flex-wrap" style="display:flex;flexDirection:row;gap:2.5rem; margin-left: 15vw; margin-right: 15vw; margin-top: 2.5vh;">
+      <!-- class="justify-around flex-wrap"
+      style="display:flex;flexDirection:row;gap:2.5rem; margin-left: 15vw; margin-right: 15vw; margin-top: 2.5vh;""-->
+      <div
+      class="gallery-grid"
+      >
       <img
       id="myImg"
+      loading="lazy"
       style="height: auto; width: auto; max-width: 200px; max-height: 200px;"
       :src="imageObj['src']"
       :alt="imageObj['alt']"
@@ -180,12 +210,25 @@ html {
 a {color:#fff;}
 a:visited {color:#777069;}
 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.5rem;
+  margin: 2.5vh 15vw;
+}
+
 .portfolio-container {
   height:100%; width: 100%; display: flex; flex-direction: column; overflow:hidden;
 }
 
 .portfolio-header {
   // background-color: rgba(10, 4, 0, 0.5);
+  height: 40vh; /* Reduce height on smaller screens */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   position: relative;
   color:white; display: flex; flex-direction:row; height: 48vh;
 }
@@ -245,14 +288,14 @@ a:visited {color:#777069;}
   transition: 0.3s;
 }
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 100; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none; 
+  position: fixed;
+  z-index: 100; 
+  padding-top: 100px; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 100%; 
+  height: 100%; 
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
@@ -429,6 +472,11 @@ a:visited {color:#777069;}
   border:none;
   cursor:pointer;
   transition: background-color 0.2s, transform 0.1s;
+
+  &.active {
+    background: #fff;
+    color: #2a1c0e;
+  }
 }
 
 .portfolio-button:hover {
