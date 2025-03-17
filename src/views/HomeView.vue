@@ -1,8 +1,8 @@
 <script lang="ts">
 import digitalArrOld from './old/digital.js'
 import twentytwentythree from './new/2023.js'
-import twentytwentyfour from './new/2024.ts'
-import twentytwentyfive from './new/2025.ts'
+import twentytwentyfour from './new/2024.js'
+import twentytwentyfive from './new/2025.js'
 
 import closetou from '../assets/portfolioOLD/DigitalPaintings/close-to-u.jpg'
 // declare var require: any
